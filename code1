@@ -1,0 +1,312 @@
+Microsoft Windows [Version 10.0.19045.5737]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\DCS>cd ..
+
+C:\Users>cd ..
+
+C:\>cd
+C:\
+
+C:\>ls
+'ls' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\>list
+'list' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\>dir
+ Volume in drive C has no label.
+ Volume Serial Number is E0F3-809A
+
+ Directory of C:\
+
+04/10/2025  02:08 AM    <DIR>          inetpub
+05/03/2025  02:01 AM    <DIR>          Intel
+05/03/2025  10:18 PM    <DIR>          MSc7
+12/07/2019  02:14 AM    <DIR>          PerfLogs
+05/03/2025  10:17 PM    <DIR>          Program Files
+04/07/2025  05:16 AM    <DIR>          Program Files (x86)
+03/20/2025  01:22 AM    <DIR>          SOFTWARE
+03/31/2025  08:40 PM    <DIR>          Users
+04/10/2025  02:08 AM    <DIR>          Windows
+               0 File(s)              0 bytes
+               9 Dir(s)  173,964,304,384 bytes free
+
+C:\>cd MSc7
+
+C:\MSc7>git init
+Initialized empty Git repository in C:/MSc7/.git/
+
+C:\MSc7>git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+C:\MSc7>git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        a.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\MSc7>git add a.text
+fatal: pathspec 'a.text' did not match any files
+
+C:\MSc7>git add a.txt
+
+C:\MSc7>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   a.txt
+
+
+C:\MSc7>git commit -m "My first commit"
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'DCS@DESKTOP-UHO0H91.(none)')
+
+C:\MSc7>git config --global user.email "test@gmail.com
+
+C:\MSc7>git commit -m "My first commit"
+[master (root-commit) 0190a04] My first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+
+C:\MSc7>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\MSc7>git add a.txt
+
+C:\MSc7>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   a.txt
+
+
+C:\MSc7>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   a.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.txt
+
+
+C:\MSc7>git restore a.txt
+
+C:\MSc7>
+C:\MSc7>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   a.txt
+
+
+C:\MSc7>git commit -m "My second commit"
+[master 32b18f1] My second commit
+ 1 file changed, 1 insertion(+)
+
+C:\MSc7>git log
+commit 32b18f1a993f90aabf09d3ac4e2a56ee9f8fe33b (HEAD -> master)
+Author: unknown <test@gmail.com>
+Date:   Sat May 3 22:38:09 2025 -0700
+
+    My second commit
+
+commit 0190a041f7b5c70b510ad069f4ab80d8984d6eb0
+Author: unknown <test@gmail.com>
+Date:   Sat May 3 22:29:32 2025 -0700
+
+    My first commit
+
+C:\MSc7>git log --oneline
+32b18f1 (HEAD -> master) My second commit
+0190a04 My first commit
+
+C:\MSc7>git reset 32b18f1 --hard
+HEAD is now at 32b18f1 My second commit
+
+C:\MSc7>git log --oneline
+32b18f1 (HEAD -> master) My second commit
+0190a04 My first commit
+
+C:\MSc7>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   a.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\MSc7>git add a.txt
+
+C:\MSc7>git commit -m "My third commit"
+[master 9270afc] My third commit
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+C:\MSc7>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\MSc7>git log --oneline
+9270afc (HEAD -> master) My third commit
+32b18f1 My second commit
+0190a04 My first commit
+
+C:\MSc7>git reset 0190a04 --hard
+HEAD is now at 0190a04 My first commit
+
+C:\MSc7>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\MSc7>git log --oneline
+0190a04 (HEAD -> master) My first commit
+
+C:\MSc7>git branch
+* master
+
+C:\MSc7>git branch cal-tax
+
+C:\MSc7>git branch
+  cal-tax
+* master
+
+C:\MSc7>git checkout cal-tax
+Switched to branch 'cal-tax'
+
+C:\MSc7>git status
+On branch cal-tax
+nothing to commit, working tree clean
+
+C:\MSc7>git config --global user.email "wedagerw@gmail.com"
+
+C:\MSc7>git status
+On branch cal-tax
+nothing to commit, working tree clean
+
+C:\MSc7>cd pro
+
+C:\MSc7\pro>git clone https://github.com/wedagerw/Msc7.git
+Cloning into 'Msc7'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (6/6), done.
+
+C:\MSc7\pro>git add B.txt
+fatal: pathspec 'B.txt' did not match any files
+
+C:\MSc7\pro>git add B.txt
+fatal: pathspec 'B.txt' did not match any files
+
+C:\MSc7\pro>cd Msc7
+
+C:\MSc7\pro\Msc7>git add B.txt
+fatal: pathspec 'B.txt' did not match any files
+
+C:\MSc7\pro\Msc7>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+C:\MSc7\pro\Msc7>git init B.txt
+Initialized empty Git repository in C:/MSc7/pro/Msc7/B.txt/.git/
+
+C:\MSc7\pro\Msc7>git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        B.txt/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\MSc7\pro\Msc7>git commit -m "This is new"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        B.txt/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\MSc7\pro\Msc7>git commit -m "This is new"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        B.txt/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\MSc7\pro\Msc7>cd B.txt
+
+C:\MSc7\pro\Msc7\B.txt>git commit -m "Test"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        b.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\MSc7\pro\Msc7\B.txt>ex
+'ex' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\MSc7\pro\Msc7\B.txt>cd
+C:\MSc7\pro\Msc7\B.txt
+
+C:\MSc7\pro\Msc7\B.txt>cd
+C:\MSc7\pro\Msc7\B.txt
+
+C:\MSc7\pro\Msc7\B.txt>cd
+C:\MSc7\pro\Msc7\B.txt
+
+C:\MSc7\pro\Msc7\B.txt>cd ..
+
+C:\MSc7\pro\Msc7>git push
+
+C:\MSc7\pro\Msc7>git push origin main
+info: please complete authentication in your browser...
